@@ -1,0 +1,24 @@
+name: pr test 🚀🚀
+
+on:
+  pull_request:
+    types: [synchronize, labeled]
+
+jobs:
+  test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: checkout with ref
+        with:
+          ref: { github.event.pull_request.head.sha }}
+      - name: cat a.out
+        run: |
+          git show HEAD
+          git ls-files
+          if [[ -f a.out ]]; then
+            cat a.out
+          else
+            echo a.out doesn't exist
+          fi
