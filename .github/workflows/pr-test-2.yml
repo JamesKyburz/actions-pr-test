@@ -17,8 +17,4 @@ jobs:
         run: |
           git show HEAD
           git ls-files
-          if [[ -f a.out ]]; then
-            cat a.out
-          else
-            echo a.out doesn't exist
-          fi
+          cat a.out
