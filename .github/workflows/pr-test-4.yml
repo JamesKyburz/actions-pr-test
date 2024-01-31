@@ -11,8 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: checkout with ref
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: cat a.out
         run: |
           git show HEAD
